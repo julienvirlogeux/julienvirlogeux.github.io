@@ -1,0 +1,151 @@
+:root {
+  --bg: #0f1115;
+  --sidebar-bg: #161b22;
+  --card-bg: #1e232e;
+  --text-main: #ffffff;
+  --text-muted: #9ca3af;
+  --accent: #60a5fa; /* Blue */
+  --accent-glow: rgba(96, 165, 250, 0.15);
+  --border: #2d3748;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; margin: 0; }
+
+/* LAYOUT GRID */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 350px 1fr; /* Fixed Sidebar + Fluid Content */
+  }
+}
+
+/* SIDEBAR STYLES */
+.sidebar {
+  background: var(--sidebar-bg);
+  padding: 4rem 2rem;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.profile-header h1 { font-size: 2.5rem; letter-spacing: -1px; line-height: 1.1; margin-bottom: 0.5rem; }
+.profile-header h2 { font-size: 1.1rem; color: var(--accent); font-weight: 500; margin-bottom: 2rem; }
+.bio { color: var(--text-muted); margin-bottom: 2.5rem; max-width: 300px; }
+.bio strong { color: white; }
+
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 1rem;
+  transition: transform 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); }
+
+.link-text { color: var(--text-main); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+
+/* SKILL TAGS IN SIDEBAR */
+.mini-skills { margin-top: 4rem; }
+.mini-skills h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 1rem; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tags span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.05);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* MAIN CONTENT AREA */
+.content {
+  padding: 4rem 3rem;
+  max-width: 1000px;
+}
+
+.section-header { margin-bottom: 3rem; }
+.section-header h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+.section-header p { color: var(--text-muted); }
+
+/* PROJECT GRID */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+}
+
+.card-header { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 1rem; color: var(--text-muted); }
+.company-badge { text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; color: var(--accent); }
+
+.project-card h4 { font-size: 1.4rem; margin-bottom: 1rem; }
+.project-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 2rem; flex-grow: 1; }
+
+.tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+.tag {
+  font-size: 0.75rem;
+  color: var(--accent);
+  background: var(--accent-glow);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: monospace;
+}
+
+/* EDUCATION SECTION */
+.education-section {
+  border-top: 1px solid var(--border);
+  padding-top: 3rem;
+}
+.edu-item { margin-bottom: 1rem; color: var(--text-muted); }
+.edu-item strong { color: var(--text-main); }
+.rank { font-size: 0.8rem; background: #333; padding: 2px 6px; border-radius: 4px; margin-left: 10px; }
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 768px) {
+  .content { padding: 2rem; }
+  .sidebar { padding: 3rem 2rem; }
+}
